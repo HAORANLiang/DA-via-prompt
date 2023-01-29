@@ -1,4 +1,6 @@
 import argparse
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 import torch
 
 from dassl.utils import setup_logger, set_random_seed, collect_env_info
@@ -22,6 +24,8 @@ import datasets.imagenet_sketch
 import datasets.imagenetv2
 import datasets.imagenet_a
 import datasets.imagenet_r
+
+import datasets.office_home
 
 import trainers.coop
 import trainers.cocoop

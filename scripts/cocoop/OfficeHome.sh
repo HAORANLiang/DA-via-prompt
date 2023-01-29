@@ -3,11 +3,11 @@
 #cd ../..
 
 # custom config
-DATA=/path/to/datasets
+DATA=../data
 TRAINER=CoCoOp
 # TRAINER=CoOp
 
-DATASET=imagenet
+DATASET=OfficeHome
 SEED=$1
 
 CFG=vit_b16_c4_ep10_batch1_ctxv1
@@ -26,5 +26,6 @@ else
     --dataset-config-file configs/datasets/${DATASET}.yaml \
     --config-file configs/trainers/${TRAINER}/${CFG}.yaml \
     --output-dir ${DIR} \
-    DATASET.NUM_SHOTS ${SHOTS}
+    --source-domains art \
+    --target-domains clipart 
 fi
